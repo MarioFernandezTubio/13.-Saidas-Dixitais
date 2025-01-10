@@ -1,0 +1,34 @@
+#define VERDE 13
+#define ROJO  12
+#define RELE  11
+#define PULSA 10
+
+bool pulsa = 0;
+
+
+void setup()
+{
+  pinMode(VERDE, OUTPUT);
+  pinMode(ROJO, OUTPUT);
+  pinMode(RELE, OUTPUT);
+  pinMode(PULSA, INPUT);
+}
+
+void loop()
+{
+  pulsa = digitalRead(PULSA);
+  
+  if(pulsa == false) 
+  {   
+  digitalWrite(VERDE, LOW);
+  digitalWrite(ROJO, HIGH);
+  digitalWrite(RELE, HIGH);
+    delay(4000); // Wait for 4000 millisecond(s)
+  
+  digitalWrite(VERDE, HIGH);
+  digitalWrite(ROJO, LOW);
+  digitalWrite(RELE, LOW);
+  	delay(4000); // Wait for 4000 millisecond(s)
+  }
+    
+}
